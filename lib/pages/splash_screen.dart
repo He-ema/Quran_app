@@ -1,4 +1,3 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -26,14 +25,11 @@ class _SplasherState extends State<Splasher> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Center(
-        child: AnimatedTextKit(
-          animatedTexts: [
-            TyperAnimatedText('كَانَ خُلُقُ نَبِيِّ اللَّه ﷺ الْقُرْآنَ',
-                textStyle: const TextStyle(fontSize: 30)),
-          ],
-          pause: const Duration(seconds: 3),
+        child: Image.asset(
+          'assets/images/quranKarem.png',
+          width: MediaQuery.of(context).size.width * 0.5,
+          height: MediaQuery.of(context).size.height * 0.5,
         ),
       ),
     );

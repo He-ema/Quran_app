@@ -16,20 +16,20 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<Widget> pages = [
-    const Tasbeeh_page(),
+    // const Tasbeeh_page(),
     const AzkarElmasaa(),
     const AzkarElsabah(),
     QuranPage(),
   ];
 
-  int selectedpage = 3;
+  int selectedpage = 2;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _key,
       floatingActionButtonLocation: FloatingActionButtonLocation.miniStartTop,
-      floatingActionButton: selectedpage == 3
+      floatingActionButton: selectedpage == 2
           ? null
           : FloatingActionButton.small(
               child: const Icon(Icons.arrow_forward_ios),
@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
                 _key.currentState!.openDrawer();
               },
             ),
-      drawer: selectedpage == 3 ? null : const SideBar(),
+      drawer: selectedpage == 2 ? null : const SideBar(),
       body: pages.elementAt(selectedpage),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (value) {
@@ -50,8 +50,8 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: const Color(0xffF5F3F4),
         type: BottomNavigationBarType.fixed,
         items: const [
-          BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.bookQuran), label: 'تدبر'),
+          // BottomNavigationBarItem(
+          //     icon: Icon(FontAwesomeIcons.bookQuran), label: 'تدبر'),
           BottomNavigationBarItem(
               icon: Icon(FontAwesomeIcons.moon), label: 'أذكار المساء'),
           BottomNavigationBarItem(
