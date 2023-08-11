@@ -2,7 +2,8 @@ import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:prayer/cubits/cubit/theme_cubit.dart';
+
+import '../cubits/theme_cubit/theme_cubit.dart';
 
 class QuranSideBar extends StatefulWidget {
   const QuranSideBar(

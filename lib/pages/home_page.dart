@@ -4,8 +4,7 @@ import 'package:prayer/helpers/side_bar.dart';
 import 'package:prayer/pages/azkar_elsabah.dart';
 import 'package:prayer/pages/azkar_elmasaa.dart';
 import 'package:prayer/pages/quran_page.dart';
-
-import 'tasbeeh_page.dart';
+import 'package:prayer/pages/tasbeeh_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,20 +15,20 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<Widget> pages = [
-    // const Tasbeeh_page(),
+    const TasbeehPage(),
     const AzkarElmasaa(),
     const AzkarElsabah(),
     QuranPage(),
   ];
 
-  int selectedpage = 2;
+  int selectedpage = 3;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _key,
       floatingActionButtonLocation: FloatingActionButtonLocation.miniStartTop,
-      floatingActionButton: selectedpage == 2
+      floatingActionButton: selectedpage == 3
           ? null
           : FloatingActionButton.small(
               child: const Icon(Icons.arrow_forward_ios),
@@ -37,7 +36,7 @@ class _HomePageState extends State<HomePage> {
                 _key.currentState!.openDrawer();
               },
             ),
-      drawer: selectedpage == 2 ? null : const SideBar(),
+      drawer: selectedpage == 3 ? null : const SideBar(),
       body: pages.elementAt(selectedpage),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (value) {
@@ -50,8 +49,8 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: const Color(0xffF5F3F4),
         type: BottomNavigationBarType.fixed,
         items: const [
-          // BottomNavigationBarItem(
-          //     icon: Icon(FontAwesomeIcons.bookQuran), label: 'تدبر'),
+          BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.bookQuran), label: 'تدبر'),
           BottomNavigationBarItem(
               icon: Icon(FontAwesomeIcons.moon), label: 'أذكار المساء'),
           BottomNavigationBarItem(

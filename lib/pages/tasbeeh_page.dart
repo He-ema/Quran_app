@@ -1,11 +1,25 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/custom_notification_item.dart';
+import '../widgets/notification_app_bar.dart';
+
 // ignore: camel_case_types
-class Tasbeeh_page extends StatelessWidget {
-  const Tasbeeh_page({super.key});
+class TasbeehPage extends StatelessWidget {
+  const TasbeehPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: Column(
+        children: [
+          NotificationAppBar(),
+          Expanded(
+            child: ListView.builder(
+              itemBuilder: (context, index) => CustomNotificationItem(),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

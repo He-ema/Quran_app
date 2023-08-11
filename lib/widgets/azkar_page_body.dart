@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:prayer/cubits/cubit/theme_cubit.dart';
+
+import '../cubits/theme_cubit/theme_cubit.dart';
 
 class AzkarBageBody extends StatelessWidget {
   const AzkarBageBody({super.key, required this.azkaarText});
