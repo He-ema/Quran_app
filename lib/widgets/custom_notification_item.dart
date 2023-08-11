@@ -10,31 +10,37 @@ class CustomNotificationItem extends StatelessWidget {
       padding: EdgeInsets.all(16),
       margin: EdgeInsets.all(16),
       decoration: BoxDecoration(color: Colors.transparent.withOpacity(0.1)),
-      child: ListTile(
-        title: Text(
-          'Title',
-          style: const TextStyle(
-            fontSize: 21,
-          ),
-        ),
-        subtitle: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          child: Text(
-            'note.subTitle',
-            style: TextStyle(
-              fontSize: 18,
-              color: Colors.black.withOpacity(0.7),
-              fontWeight: FontWeight.bold,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          ListTile(
+            title: Text(
+              'Title',
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 21,
+              ),
+            ),
+            subtitle: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16),
+              child: Text(
+                'note.subTitle',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black.withOpacity(0.7),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
           ),
-        ),
-        trailing: IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              FontAwesomeIcons.trash,
-              color: Colors.black,
-              size: 25,
-            )),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
+              'Date',
+              textAlign: TextAlign.end,
+            ),
+          ),
+        ],
       ),
     );
   }
