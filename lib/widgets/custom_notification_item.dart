@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:prayer/models/notification_model.dart';
 
 class CustomNotificationItem extends StatelessWidget {
-  const CustomNotificationItem({super.key});
+  const CustomNotificationItem({super.key, required this.item});
 
+  final NotificationModel item;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,7 +16,7 @@ class CustomNotificationItem extends StatelessWidget {
         children: [
           ListTile(
             title: Text(
-              'Title',
+              item.title,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 21,
@@ -24,7 +25,7 @@ class CustomNotificationItem extends StatelessWidget {
             subtitle: Padding(
               padding: const EdgeInsets.symmetric(vertical: 16),
               child: Text(
-                'note.subTitle',
+                item.subTitle,
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.black.withOpacity(0.7),
@@ -36,7 +37,7 @@ class CustomNotificationItem extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: Text(
-              'Date',
+              '${item.date}',
               textAlign: TextAlign.end,
             ),
           ),

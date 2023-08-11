@@ -21,7 +21,11 @@ class TasbeehPage extends StatelessWidget {
             onPressed: () {
               showModalBottomSheet(
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16)),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(16),
+                    topRight: Radius.circular(16),
+                  ),
+                ),
                 isScrollControlled: true,
                 context: context,
                 builder: (context) {

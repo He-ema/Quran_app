@@ -15,7 +15,8 @@ class FirebaseCubit extends Cubit<FirebaseState> {
     azkar.add({
       kTitle: title,
       kSubTitle: subtitle,
-      kDate: DateTime.now(),
+      kDate:
+          '${DateTime.now().year.toString()}-${DateTime.now().month.toString()}-${DateTime.now().day.toString()} At ${DateTime.now().hour.toString()}:${DateTime.now().minute.toString()}',
     });
   }
 

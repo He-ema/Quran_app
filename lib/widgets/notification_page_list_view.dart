@@ -4,15 +4,30 @@ import 'package:prayer/cubits/firebase_cubit/firebase_cubit.dart';
 
 import 'custom_notification_item.dart';
 
-class NotificationListView extends StatelessWidget {
+class NotificationListView extends StatefulWidget {
   const NotificationListView({super.key});
+
+  @override
+  State<NotificationListView> createState() => _NotificationListViewState();
+}
+
+class _NotificationListViewState extends State<NotificationListView> {
+  @override
+  void initState() {
+    BlocProvider.of<FirebaseCubit>(context).getMessages();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FirebaseCubit, FirebaseState>(
       builder: (context, state) {
+        var notificationList =
+            BlocProvider.of<FirebaseCubit>(context).notificationList;
         return ListView.builder(
-          itemBuilder: (context, index) => CustomNotificationItem(),
+          itemCount: notificationList.length,
+          itemBuilder: (context, index) =>
+              CustomNotificationItem(item: notificationList[index]),
         );
       },
     );
