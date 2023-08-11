@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   animated_text_kit: ^4.2.2
+  cloud_firestore: ^4.8.4
   cupertino_icons: ^1.0.2
   day_night_switcher: ^0.2.0+1
   firebase_core: ^2.15.0

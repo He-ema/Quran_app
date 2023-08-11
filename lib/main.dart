@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:prayer/cubits/firebase_cubit/firebase_cubit.dart';
 import 'package:prayer/pages/choose_page.dart';
 import 'package:prayer/pages/quran_page.dart';
 import 'package:prayer/pages/splash_screen.dart';
@@ -21,8 +22,15 @@ void main() async {
 
   await Hive.initFlutter();
   await Hive.openBox('quran');
-  runApp(BlocProvider(
-    create: (context) => ThemeCubit(),
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider(
+        create: (context) => ThemeCubit(),
+      ),
+      BlocProvider(
+        create: (context) => FirebaseCubit(),
+      ),
+    ],
     child: const MyApp(),
   ));
 }

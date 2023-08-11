@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:prayer/cubits/firebase_cubit/firebase_cubit.dart';
 import 'custom_button.dart';
 import 'custom_text_form_field.dart';
 
@@ -48,6 +50,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
           onTap: () {
             if (formKey.currentState!.validate()) {
               formKey.currentState!.save();
+              BlocProvider.of<FirebaseCubit>(context)
+                  .AddNotification(title: title!, subtitle: subTitle!);
+              Navigator.pop(context);
             } else {
               autovalidateMode = AutovalidateMode.always;
               setState(() {});
