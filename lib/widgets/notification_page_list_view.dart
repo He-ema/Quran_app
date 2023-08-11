@@ -14,7 +14,7 @@ class NotificationListView extends StatefulWidget {
 class _NotificationListViewState extends State<NotificationListView> {
   @override
   void initState() {
-    BlocProvider.of<FirebaseCubit>(context).getMessages();
+    BlocProvider.of<FirebaseCubit>(context).getItems();
     super.initState();
   }
 

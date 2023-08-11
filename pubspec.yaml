@@ -40,6 +40,7 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   quran: ^1.2.2
+  firebase_messaging: ^14.6.5
 
 dev_dependencies:
   build_runner: ^2.4.6
