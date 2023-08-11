@@ -1,9 +1,10 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:meta/meta.dart';
 import 'package:prayer/constants.dart';
 import 'package:prayer/models/notification_model.dart';
-
 part 'firebase_state.dart';
 
 class FirebaseCubit extends Cubit<FirebaseState> {
@@ -17,11 +18,12 @@ class FirebaseCubit extends Cubit<FirebaseState> {
       kSubTitle: subtitle,
       kDate:
           '${DateTime.now().year.toString()}-${DateTime.now().month.toString()}-${DateTime.now().day.toString()} At ${DateTime.now().hour.toString()}:${DateTime.now().minute.toString()}',
+      kAddingDate: DateTime.now()
     });
   }
 
-  void getMessages() {
-    azkar.orderBy(kDate, descending: true).snapshots().listen((event) {
+  void getItems() {
+    azkar.orderBy(kAddingDate, descending: true).snapshots().listen((event) {
       notificationList.clear();
       for (var doc in event.docs) {
         notificationList.add(NotificationModel.fromJson(doc));
@@ -29,4 +31,6 @@ class FirebaseCubit extends Cubit<FirebaseState> {
       emit(FirebaseSuccess(notificationList: notificationList));
     });
   }
+
+  void sendNotification(String title, String body, List tokens) async {}
 }
