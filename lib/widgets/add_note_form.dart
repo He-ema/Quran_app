@@ -17,8 +17,17 @@ class _AddNoteFormState extends State<AddNoteForm> {
   final GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   String? title, subTitle;
+  bool checkBoxValue = false;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    BlocProvider.of<FirebaseCubit>(context).getTokens();
+  }
+
   @override
   Widget build(BuildContext context) {
+    var tokensList = BlocProvider.of<FirebaseCubit>(context).tokensList;
     return Form(
       autovalidateMode: autovalidateMode,
       key: formKey,
@@ -27,7 +36,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           onSaved: (value) {
             title = value;
           },
-          hint: 'Title',
+          hint: 'العنوان',
         ),
         const SizedBox(
           height: 16,
@@ -36,11 +45,23 @@ class _AddNoteFormState extends State<AddNoteForm> {
           onSaved: (value) {
             subTitle = value;
           },
-          hint: 'content',
+          hint: 'المحتوي',
           maxLines: 5,
         ),
         const SizedBox(
           height: 16,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('اشعار فقط '),
+            Checkbox(
+                value: checkBoxValue,
+                onChanged: (isChecked) {
+                  checkBoxValue = isChecked!;
+                  setState(() {});
+                }),
+          ],
         ),
         const SizedBox(
           height: 64,
@@ -50,8 +71,16 @@ class _AddNoteFormState extends State<AddNoteForm> {
           onTap: () {
             if (formKey.currentState!.validate()) {
               formKey.currentState!.save();
-              BlocProvider.of<FirebaseCubit>(context)
-                  .AddNotification(title: title!, subtitle: subTitle!);
+              if (checkBoxValue) {
+                BlocProvider.of<FirebaseCubit>(context)
+                    .sendNotification(title!, subTitle!, tokensList);
+              } else {
+                BlocProvider.of<FirebaseCubit>(context)
+                    .AddNotification(title: title!, subtitle: subTitle!);
+                BlocProvider.of<FirebaseCubit>(context)
+                    .sendNotification(title!, subTitle!, tokensList);
+              }
+
               Navigator.pop(context);
             } else {
               autovalidateMode = AutovalidateMode.always;

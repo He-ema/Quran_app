@@ -25,6 +25,8 @@ class _NotificationListViewState extends State<NotificationListView> {
         var notificationList =
             BlocProvider.of<FirebaseCubit>(context).notificationList;
         return ListView.builder(
+          physics: BouncingScrollPhysics(),
+          padding: EdgeInsets.zero,
           itemCount: notificationList.length,
           itemBuilder: (context, index) =>
               CustomNotificationItem(item: notificationList[index]),

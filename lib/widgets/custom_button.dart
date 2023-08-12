@@ -21,7 +21,7 @@ class CustomButton extends StatelessWidget {
                     color: Colors.black,
                   )
                 : const Text(
-                    'Add',
+                    'إضافة',
                     style: TextStyle(
                         fontSize: 18,
                         color: Colors.black,

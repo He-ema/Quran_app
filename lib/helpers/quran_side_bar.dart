@@ -31,7 +31,7 @@ class _QuranSideBarState extends State<QuranSideBar> {
           const Padding(
             padding: EdgeInsets.only(left: 16.0),
             child: Text(
-              'Settings',
+              'الإعدادات',
               style: TextStyle(fontSize: 21),
             ),
           ),
@@ -45,19 +45,19 @@ class _QuranSideBarState extends State<QuranSideBar> {
               size: 30,
             ),
             title: const Text(
-              'Go to Mark ',
+              'اذهب الي العلامة ',
               style: TextStyle(fontSize: 16),
             ),
             onTap: widget.onTap,
           ),
           ListTile(
             leading: const Icon(FontAwesomeIcons.fileLines),
-            title: const Text('Go to page'),
+            title: const Text('أختر صفحة'),
             onTap: widget.goToPageOnTap,
           ),
           ListTile(
             leading: const Icon(FontAwesomeIcons.bookQuran),
-            title: const Text('Go to Surah'),
+            title: const Text('أختر سورة'),
             onTap: widget.goToSurahOnTap,
           ),
           ListTile(
@@ -78,7 +78,7 @@ class _QuranSideBarState extends State<QuranSideBar> {
                 },
               ),
             ),
-            title: const Text('Mode'),
+            title: const Text('الوضع الداكن'),
             onTap: () {},
           ),
         ],

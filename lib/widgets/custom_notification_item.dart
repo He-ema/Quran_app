@@ -28,7 +28,6 @@ class CustomNotificationItem extends StatelessWidget {
                 item.subTitle,
                 style: TextStyle(
                   fontSize: 18,
-                  color: Colors.black.withOpacity(0.7),
                   fontWeight: FontWeight.bold,
                 ),
               ),

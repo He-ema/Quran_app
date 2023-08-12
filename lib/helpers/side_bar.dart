@@ -25,7 +25,7 @@ class _SideBarState extends State<SideBar> {
           const Padding(
             padding: EdgeInsets.only(left: 16.0),
             child: Text(
-              'Settings',
+              'الإعدادات',
               style: TextStyle(fontSize: 21),
             ),
           ),
@@ -50,7 +50,7 @@ class _SideBarState extends State<SideBar> {
                 },
               ),
             ),
-            title: const Text('Mode'),
+            title: const Text('الوضع الداكن'),
             onTap: () {},
           ),
         ],

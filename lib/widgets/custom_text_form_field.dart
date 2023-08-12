@@ -15,6 +15,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textAlign: TextAlign.right,
       onChanged: onChanged,
       onSaved: onSaved,
       validator: (value) {

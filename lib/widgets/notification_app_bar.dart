@@ -11,7 +11,7 @@ class NotificationAppBar extends StatelessWidget {
           height: 50,
         ),
         Text(
-          "Notifications",
+          "تذكيرات",
           style: TextStyle(fontSize: 21),
         ),
         SizedBox(
