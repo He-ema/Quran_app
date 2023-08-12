@@ -38,6 +38,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
 
   @override
   Widget build(BuildContext context) {
+    check();
     var tokensList = BlocProvider.of<FirebaseCubit>(context).tokensList;
     return Form(
       autovalidateMode: autovalidateMode,
@@ -100,7 +101,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                   dialogType: DialogType.info,
                   animType: AnimType.topSlide,
                   showCloseIcon: true,
-                  title: 'لا يجود انترنت ',
+                  title: 'لا يوجد انترنت ',
                   desc: 'تأكد من اتصالك بالانترنت ثم أعد المحاولة',
                   btnOkOnPress: () {},
                 ).show();
