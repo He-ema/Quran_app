@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:prayer/cubits/firebase_cubit/firebase_cubit.dart';
 
 import '../widgets/bottom_sheet_body.dart';
-import '../widgets/custom_notification_item.dart';
 import '../widgets/notification_app_bar.dart';
 import '../widgets/notification_page_list_view.dart';
 
@@ -17,10 +16,10 @@ class TasbeehPage extends StatelessWidget {
       create: (context) => FirebaseCubit(),
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.add),
+            child: const Icon(Icons.add),
             onPressed: () {
               showModalBottomSheet(
-                shape: RoundedRectangleBorder(
+                shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(16),
                     topRight: Radius.circular(16),
@@ -29,11 +28,11 @@ class TasbeehPage extends StatelessWidget {
                 isScrollControlled: true,
                 context: context,
                 builder: (context) {
-                  return bottomSheetBody();
+                  return const bottomSheetBody();
                 },
               );
             }),
-        body: Column(
+        body: const Column(
           children: [
             NotificationAppBar(),
             Expanded(child: NotificationListView()),

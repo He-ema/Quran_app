@@ -5,22 +5,30 @@ class NotificationAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: 50,
-        ),
-        Text(
-          "تذكيرات",
-          style: TextStyle(fontSize: 21),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Divider(
-          thickness: 2,
-        ),
-      ],
+    return Container(
+      decoration: const BoxDecoration(
+          image: DecorationImage(
+        image: AssetImage('assets/images/tree.png'),
+        fit: BoxFit.cover,
+        // opacity: 0.5,
+      )),
+      child: const Column(
+        children: [
+          SizedBox(
+            height: 50,
+          ),
+          Text(
+            "تذكيرات",
+            style: TextStyle(fontSize: 21),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Divider(
+            thickness: 2,
+          ),
+        ],
+      ),
     );
   }
 }
