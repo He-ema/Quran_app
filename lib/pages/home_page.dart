@@ -1,8 +1,8 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hive/hive.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:prayer/cubits/firebase_cubit/firebase_cubit.dart';
 import 'package:prayer/helpers/side_bar.dart';
 import 'package:prayer/pages/azkar_elsabah.dart';
@@ -28,20 +28,24 @@ class _HomePageState extends State<HomePage> {
   int selectedpage = 3;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
   @override
-  void initState() async {
+  void initState() {
     super.initState();
     var box = Hive.box('quran');
-    final connectivityResult = await (Connectivity().checkConnectivity());
-    if (connectivityResult == ConnectivityResult.mobile ||
-        connectivityResult == ConnectivityResult.wifi) {
-      if (box.get('token') == null) {
-        BlocProvider.of<FirebaseCubit>(context).AddToken();
-        box.put('token', 1);
-      }
+    if (box.get('token') == null) {
+      check();
     }
   }
 
   @override
+  Future<void> check() async {
+    bool result = await InternetConnectionChecker().hasConnection;
+    if (result == true) {
+      var box = Hive.box('quran');
+      BlocProvider.of<FirebaseCubit>(context).AddToken();
+      box.put('token', 1);
+    }
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       key: _key,
