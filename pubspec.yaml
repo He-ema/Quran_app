@@ -44,6 +44,7 @@ dependencies:
   quran: ^1.2.2
   internet_connection_checker: ^1.0.0+1
   awesome_dialog: ^3.1.0
+  awesome_notifications: ^0.7.4+1
 
 dev_dependencies:
   build_runner: ^2.4.6
