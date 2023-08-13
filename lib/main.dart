@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:prayer/cubits/firebase_cubit/firebase_cubit.dart';
 import 'package:prayer/pages/choose_page.dart';
+import 'package:prayer/pages/edit_azkar_item.dart';
 import 'package:prayer/pages/quran_page.dart';
 import 'package:prayer/pages/splash_screen.dart';
 

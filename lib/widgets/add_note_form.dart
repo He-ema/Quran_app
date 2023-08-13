@@ -79,6 +79,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           height: 64,
         ),
         CustomButton(
+          text: 'إضافة',
           isLoading: false,
           onTap: () {
             if (formKey.currentState!.validate()) {

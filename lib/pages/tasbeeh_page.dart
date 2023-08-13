@@ -16,6 +16,7 @@ class TasbeehPage extends StatelessWidget {
       create: (context) => FirebaseCubit(),
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
+            heroTag: 'botton1',
             child: const Icon(Icons.add),
             onPressed: () {
               showModalBottomSheet(

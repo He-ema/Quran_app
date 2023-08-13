@@ -79,4 +79,27 @@ class FirebaseCubit extends Cubit<FirebaseState> {
       emit(FirebaseSuccess(notificationList: notificationList));
     });
   }
+
+  void deleteItem(Timestamp date) {
+    azkar.snapshots().listen((event) {
+      for (var doc in event.docs) {
+        if (doc[kAddingDate] == date) {
+          azkar.doc(doc.id).delete();
+        }
+      }
+    });
+  }
+
+  void updateItem(String title, String body, Timestamp date) {
+    azkar.snapshots().listen((event) {
+      for (var doc in event.docs) {
+        if (doc[kAddingDate] == date) {
+          azkar.doc(doc.id).update({
+            kTitle: title,
+            kSubTitle: body,
+          });
+        }
+      }
+    });
+  }
 }
