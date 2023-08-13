@@ -11,7 +11,7 @@ class CustomNotificationItem extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       margin: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.transparent.withOpacity(0.1),
+        color: Colors.transparent.withOpacity(0.3),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
