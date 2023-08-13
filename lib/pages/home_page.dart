@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
         type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(FontAwesomeIcons.bookQuran), label: 'تدبر'),
+              icon: Icon(Icons.notifications), label: 'تذكيرات'),
           BottomNavigationBarItem(
               icon: Icon(FontAwesomeIcons.moon), label: 'أذكار المساء'),
           BottomNavigationBarItem(
