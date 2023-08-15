@@ -37,7 +37,8 @@ class FirebaseCubit extends Cubit<FirebaseState> {
     });
   }
 
-  void sendNotification(String title, String body, List tokens) async {
+  void sendNotification(String title, String body, List tokens,
+      {String? image}) async {
     for (int i = 0; i < tokens.length; i++) {
       await http.post(
         Uri.parse('https://fcm.googleapis.com/fcm/send'),
@@ -50,6 +51,9 @@ class FirebaseCubit extends Cubit<FirebaseState> {
             'notification': <String, dynamic>{
               'body': body,
               'title': title,
+              'image': image == '123'
+                  ? 'https://png.pngtree.com/png-clipart/20230218/ourmid/pngtree-islamic-greeting-card-ramdan-kareem-mosque-masjid-with-moon-decoration-png-image_6603599.png'
+                  : image,
             },
             'priority': 'high',
             'data': <String, dynamic>{

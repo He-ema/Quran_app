@@ -21,6 +21,8 @@ class _AddNoteFormState extends State<AddNoteForm> {
   String? title, subTitle;
   bool checkBoxValue = false;
   bool isConnected = false;
+  bool isThereImage = false;
+  String? image;
   @override
   void initState() {
     super.initState();
@@ -63,6 +65,14 @@ class _AddNoteFormState extends State<AddNoteForm> {
         const SizedBox(
           height: 16,
         ),
+        isThereImage
+            ? CustomTextField(
+                onChanged: (data) {
+                  image = data;
+                },
+                hint: 'رابط الصورة',
+              )
+            : Container(),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -71,6 +81,21 @@ class _AddNoteFormState extends State<AddNoteForm> {
                 value: checkBoxValue,
                 onChanged: (isChecked) {
                   checkBoxValue = isChecked!;
+                  setState(() {});
+                }),
+          ],
+        ),
+        SizedBox(
+          height: 16,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('اضافة صورة للاشعار'),
+            Checkbox(
+                value: isThereImage,
+                onChanged: (isChecked) {
+                  isThereImage = isChecked!;
                   setState(() {});
                 }),
           ],
@@ -86,13 +111,15 @@ class _AddNoteFormState extends State<AddNoteForm> {
               formKey.currentState!.save();
               if (isConnected) {
                 if (checkBoxValue) {
-                  BlocProvider.of<FirebaseCubit>(context)
-                      .sendNotification(title!, subTitle!, tokensList);
+                  BlocProvider.of<FirebaseCubit>(context).sendNotification(
+                      title!, subTitle!, tokensList,
+                      image: image);
                 } else {
                   BlocProvider.of<FirebaseCubit>(context)
                       .AddNotification(title: title!, subtitle: subTitle!);
-                  BlocProvider.of<FirebaseCubit>(context)
-                      .sendNotification(title!, subTitle!, tokensList);
+                  BlocProvider.of<FirebaseCubit>(context).sendNotification(
+                      title!, subTitle!, tokensList,
+                      image: image);
                 }
 
                 Navigator.pop(context);
